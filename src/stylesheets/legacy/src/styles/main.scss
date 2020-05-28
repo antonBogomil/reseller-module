@@ -1,0 +1,486 @@
+// @import 'normalize.css';
+//drag n drop library
+
+@import 'dragula.scss';
+@import 'select2.scss';
+@import 'datepicker.scss';
+@import '../../bootstrap-grid-only/css/grid12.scss';
+@import './jquery-ui-fix.scss';
+
+$img-path: '/images/';
+$Arial: Arial, sans-serif, serif;
+$Verdana: Verdana, $Arial;
+$Tahoma: Tahoma, $Verdana;
+$blue: #21409a;
+$gray: #e4e7ee;
+$inactive: #80809c;
+$green: #97bf0d;
+$yellow: #febf42;
+$grey: #e6e6f0;
+$inactive: #808080;
+$blue: #21409a;
+$green: #97bf0d;
+$red: red;
+$light-red: #ce8483;
+$light-blue: #edf1fc;
+$light-yellow: #ffffcc;
+
+$button-gradient: linear-gradient(#ffde98 40%, #f9c45a 75%);
+$button-gradient-hover: linear-gradient(#f9c45a 40%, #ffde98 60%);
+$gradient-grey: linear-gradient(#eee, #fff);
+
+$progressBarHeight: 15px;
+
+// TODO Move all little thing into separate scss module - called components
+
+// TODO the font-face are taken from fresher stylesheets
+@import '../../../mixins/_font-face.scss';
+@import '../../../basics/_font-face.scss';
+#react-app,
+.images {
+  font-family: 'proxima_nova_alt' Verdana sans-serif;
+  * {
+    font-family: inherit;
+  }
+}
+@import 'mixins';
+@import 'specs';
+@import 'modal';
+@import 'overlay';
+@import 'stamps';
+@import 'components';
+@import 'error';
+@import 'general';
+@import 'productTitle';
+@import 'productNew';
+@import 'suggestions';
+@import 'tables';
+@import 'description';
+@import 'externalStyles';
+@import './../../../custom_toastr.scss';
+@import 'bem/text';
+@import 'bem/fields';
+@import 'bem/elements';
+@import 'bem/blocks';
+
+@import 'brandPage/_brandPage';
+
+.bootstrap-grid * {
+  box-sizing: border-box;
+}
+
+span#product-title {
+  max-width: 600px;
+  display: block;
+  word-wrap: break-word;
+}
+
+.custom-checkbox {
+  @include checkbox;
+  padding-left: 0;
+  .mark {
+    position: relative;
+  }
+}
+
+.hover_button {
+  cursor: pointer;
+}
+
+.bootstrap-grid * {
+  box-sizing: border-box;
+}
+
+span#product-title {
+  max-width: 600px;
+  display: block;
+  word-wrap: break-word;
+}
+
+// ::-moz-placeholder { color:black; }
+.feature-wrapper,
+.modal,
+.gallery-overlay {
+  .button {
+    // letter-spacing: 1.5px;
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
+    font: bold 12px/28px $Verdana;
+    padding-right: 0;
+    padding-left: 0;
+    text-align: center;
+    white-space: nowrap;
+    box-sizing: border-box;
+    height: 32px;
+    cursor: pointer;
+    display: inline-block;
+    &.fixed-size {
+      width: 74px;
+    }
+    &.gorange {
+      // background: $button-gradient;
+      background: url('#{$img-path}interface/button-back.png') 0 0 repeat-x;
+      border-color: #f0bd61 #f4ca80;
+      &:hover {
+        background: $button-gradient-hover;
+      }
+    }
+  }
+}
+
+#fixed-title {
+  img.nav-icon {
+    margin: auto;
+    position: static;
+  }
+}
+
+#previewMainPic {
+  // min-width: 95px;
+  width: 200px;
+  text-align: center;
+  img {
+    max-width: 200px;
+    max-height: 200px;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+button.exit {
+  border: none;
+  width: 12px;
+  height: 12px;
+  top: 4px;
+  cursor: pointer;
+  right: 4px;
+  position: absolute;
+  background: url('#{$img-path}cross.svg') 50% 50% no-repeat;
+}
+
+.product_details .images {
+  padding-top: 116px;
+  transition: padding 1s ease;
+  box-sizing: border-box;
+  &.hasMain {
+    padding-top: 261px;
+    min-height: 300px;
+    .picture.main {
+      position: absolute;
+      display: block;
+      border: 1px solid red;
+      top: 115px;
+    }
+  }
+  .picture {
+    &.main {
+      display: none;
+    }
+    &.inactive {
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.5);
+      }
+    }
+    &.hidden {
+      height: 0;
+      overflow: hidden;
+      border: 0;
+      padding: 0;
+      min-height: 0;
+      margin: 0;
+    }
+    &.empty {
+      position: absolute;
+      top: 0;
+    }
+    transition: 0.3s ease;
+    padding-top: 15px;
+    background: white;
+    width: 95px;
+    box-sizing: border-box;
+    // border: 1px solid red;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    min-height: 108px;
+    margin-bottom: 6px;
+    .progress {
+      &.hidden {
+        height: 0;
+        border: 0;
+        padding: 0;
+      }
+      // border-top: 1px solid $gray;
+      height: $progressBarHeight;
+      width: 100%;
+      padding: 1px;
+      overflow: hidden;
+      box-sizing: border-box;
+      transition: 1s ease;
+      .bar {
+        margin: auto;
+        background: $blue;
+        // width: calc(100% - 1px);
+        max-width: 90px;
+        width: 0;
+        // width: 50%;
+        transition: 1s ease;
+        height: $progressBarHeight;
+      }
+    }
+    &.error,
+    &.uploading {
+      .logo {
+        img {
+          display: none;
+        }
+      }
+      .info {
+        color: $blue;
+      }
+    }
+    &.uploading {
+      .logo {
+        background: url('#{$img-path}Camera.svg') 50% 50% no-repeat;
+      }
+    }
+    &.error {
+      .logo {
+        background: url('#{$img-path}bad.svg') 50% 50% no-repeat;
+      }
+    }
+    .logo {
+      img {
+        max-width: 100%;
+      }
+      min-height: 70px;
+      display: block;
+      margin: auto;
+      background: url('#{$img-path}Camera.svg') 50% 50% no-repeat;
+      max-width: 100%;
+    }
+  }
+}
+
+// for dragula framework
+.picture {
+  .info {
+    font: 11px $Tahoma;
+    color: $blue;
+    max-width: 100%;
+    float: none;
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+
+/* Simple Modal */
+
+.simplemodal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+  z-index: 100;
+}
+
+.simplemodal-wraper {
+  width: 400px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -150px;
+  background-color: ghostwhite;
+  text-align: center;
+  z-index: 110;
+  border-radius: 6px;
+  border: 2px solid;
+}
+
+.simplemodal-head {
+  background: #21409a;
+  color: #fff;
+  padding: 0 20px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  line-height: 28px;
+  font-weight: bold;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.simplemodal-sub-head {
+  color: #21409a;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 30px;
+}
+
+.simplemodal-ftp {
+  display: none;
+}
+
+.simplemodal-ftp table {
+  width: 65%;
+  margin-left: 80px;
+}
+
+.get-images,
+.new-task {
+  background: url('#{$img-path}interface/search-button.png') no-repeat 100% 100%;
+  background-image: linear-gradient(#ffe096 55%, #ffc032 55%);
+  border: 2px solid #ffb444;
+  height: 37px;
+  width: 80px;
+  padding: 0 10px 0 27px;
+  position: relative;
+  cursor: pointer;
+  margin-left: 140px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.get-images span,
+.new-task span {
+  font: bold 13px/1 bold Verdana, sans-serif !important;
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: -10px;
+}
+
+// .multiple{background-image: url(/img/dropdown_arrow.gif) !important;background-repeat: no-repeat !important;background-position: 97% 50% !important;}
+$toggleContainer: '.toggle-container';
+#{$toggleContainer} {
+  width: 100%;
+  position: relative;
+  margin-top: 3px;
+  &:last-child {
+    margin-bottom: 8px;
+  }
+  &.grey {
+    #{$toggleContainer}-header {
+      background: $gray;
+      margin: 0;
+      padding-left: 32px;
+      height: 30px;
+      font-size: 1em;
+      span {
+        background: none;
+      }
+      &:after {
+        background: none;
+      }
+    }
+  }
+  &-header {
+    margin: 0 10px 15px 0;
+    padding-left: 35px;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+    border: none;
+    line-height: 36px;
+    &.active {
+      & ~ .toggle-container-content {
+        display: none;
+      }
+      #{$toggleContainer}-button {
+        background-image: url('#{$img-path}plus-yellow.png');
+      }
+    }
+    span {
+      font: bold 12px $Verdana;
+      color: $blue;
+      background: white;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      padding-right: 10px;
+      cursor: pointer;
+    }
+    &:after {
+      position: absolute;
+      display: block;
+      content: '';
+      height: 1px;
+      top: 50%;
+      background: $yellow;
+      width: 100%;
+    }
+    &_light {
+      span {
+        font-weight: normal;
+      }
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  .toggle-container-content {
+    &_spaced {
+      padding: 0 30px;
+    }
+    margin-bottom: 10px;
+  }
+  &-button {
+    position: absolute;
+    top: 10px;
+    left: 14px;
+    width: 14px;
+    height: 14px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    z-index: 2;
+    background: url('#{$img-path}minus-yellow.png') 50% 50% no-repeat;
+    &.active {
+      background-image: url('#{$img-path}plus-yellow.png');
+      & ~ .toggle-container-content {
+        display: none;
+      }
+    }
+  }
+}
+
+#mmo-block {
+  .table {
+    font-size: 14px;
+    h2 {
+      font-size: inherit;
+    }
+  }
+}
+
+#features-block {
+  h1 {
+    font-size: 14px;
+  }
+}
+
+.liveBtn {
+  float: right;
+  width: 100px;
+  height: 25px;
+  background-image: url('#{$img-path}stamps_live_sprite2.png');
+  background-position: -100px 0;
+  background-size: 200px;
+  cursor: pointer;
+}

@@ -1,0 +1,126 @@
+.button {
+  cursor: pointer;
+  &_fixed-size {
+    width: 74px;
+     padding-right: 0;
+    padding-left: 0;
+  }
+  &_light {
+    background: #f8f9fd;
+    transition: background .2s ease;
+    border: none;
+    &:hover {
+      background: darken(#f8f9fd, 20%)
+    }
+  }
+  &_gorange {
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: black;
+    border-width: 2px;
+    border-style: solid;
+    font: bold 12px/28px $Verdana;
+    padding-right: 5px;
+    padding-left: 5px;
+    text-align: center;
+    height: 32px;
+    cursor: pointer;
+    display: inline-block;
+    background: url('#{$img-path}interface/button-back.png') 0 0 repeat-x, $button-gradient;
+    border-color: #F0BD61 #F4CA80;
+    &:hover {
+      color: black;
+      background: $button-gradient-hover;
+    }
+  }
+}
+
+.table-cell {
+  &_spaced {
+    padding: 0 3px;
+  }
+ }
+
+.spacer {
+  display: block;
+  &_small {
+    height: 5px;
+  }
+  &_medium {
+    height: 10px;
+  }
+  &_big {
+    height:15px;
+  }
+}
+
+.progress-bar {
+  &_hidden {
+    height: 0;
+    border: 0;
+    padding: 0;
+  }
+  // border-top: 1px solid $gray;
+  height: $progressBarHeight;
+  width: 100%;
+  padding: 1px;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: 1s ease;
+  &__status {
+    &:after {
+      content: attr(data-progress);
+      width: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      text-align: center;
+      color: $yellow;
+      font-size: 11px;
+    }
+    margin: auto;
+    background: $blue;
+    // width: calc(100% - 1px);
+    max-width: calc(100% - 1px);
+    position: relative;
+    width: 0;
+    // width: 50%;
+    transition: 1s ease;
+    height: $progressBarHeight;
+  }
+}
+
+.table {
+  width: 100%;
+  &_bordered {
+    border-collapse: collapse;
+    td {
+      border: 1px solid $gray;
+    }
+  }
+  &-header {
+    background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
+    border-bottom: 1px solid #d2d2d2;
+    font-family: $Verdana;
+    &_blue {
+       background: linear-gradient(to bottom, #ffffff 0%, #D5E9FF 100%);
+    }
+    &__column {
+      line-height: 35px;
+      font-size: 12px;
+      font-family: $Verdana;
+    }
+  }
+  &__cell {
+    word-wrap: break-word;
+    max-width: 100%;
+  }
+  &__row {
+    padding: 10px 0;
+    &:nth-of-type(2n) {
+      background: #f8f9fd;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+#productTitle {
+	.title {
+		width: calc(100% - 30px);
+		white-space: normal;
+    max-width: calc(100% - 25px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+		&.green {
+			color: seagreen;
+		}
+	}
+}

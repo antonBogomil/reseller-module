@@ -1,0 +1,47 @@
+button, div.button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    &:hover {
+        cursor: pointer;
+    }
+    &:focus {
+        outline: none;
+    }
+    &.basic-button {
+        min-height: 30px;
+        transition: $basic-button-transition;
+        &.orange {
+            background-color: $light-orange;
+            color: $night-blue;
+            &, * { color: $night-blue}
+            &:hover {
+                background-color: $orange;
+                transition: $basic-button-transition;
+            }
+        }
+        &.blue {
+            background-color: $night-blue;
+            color: white;
+            &, * { color: white}
+            &:hover {
+                background-color: $blue-velvet;
+            }
+        }
+        &.red {
+            background-color: transparent;
+            color: red;
+            &, * { color: red}
+            border: 1px solid red;
+            &:hover {
+                background-color: red;
+                color: white;
+                transition: $basic-button-transition;
+            }
+        }
+    }
+    &.ice-button {
+        margin: 0 0 20px 0;
+        font-weight: 600;
+    } 
+}

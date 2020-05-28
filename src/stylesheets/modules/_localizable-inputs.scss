@@ -1,0 +1,11 @@
+.localizable {
+  position: relative;
+  .international-value {
+    width: calc(100% - 50px);
+  }
+  .counter { 
+    position: absolute;
+    top: 2px;
+    right: 20px;
+  }
+}

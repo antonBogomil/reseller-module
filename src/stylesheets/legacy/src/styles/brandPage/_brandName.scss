@@ -1,0 +1,38 @@
+#local-brand-names-container {
+  padding: 10px 0 10px 0;
+  &:empty {
+    padding: 0;
+  }
+  .input-group {
+    position: relative;
+  }
+  /*
+    language selector:
+  */
+  div.add-lang {
+    #lang-selector.popup {
+      right: 30%;
+      .languages {
+        .language-name {
+          &:focus{
+            outline: none;
+            color: white;
+            background-color: #21409a;
+          }
+          mark {
+            background-color: yellow;
+          }
+        }
+      }
+    }
+  }
+
+  ul.brand-names-list {
+    li.brand-names-item {
+      margin: 10px 0 10px 0;
+      span.lang-short-code {
+        margin: 0 0 0 5px;
+      }
+    }
+  }
+}

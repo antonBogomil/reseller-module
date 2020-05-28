@@ -1,0 +1,125 @@
+// Globe button for languages
+.product_details,
+#supplier_form {
+    span.counter {
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+        position: relative;
+        color: $blue;
+        &.hidden {
+            &:after {
+                opacity: 0;
+            }
+        }
+        /*
+    TODO write node-sass script which will replace images' urls to base64 strings
+    */
+        &.un {
+            // should check
+            background: url('#{$img-path}united_nations.png') 50% 50%/80% no-repeat;
+            width: 25px;
+            height: 25px;
+            color: transparent;
+            &:after {
+                // display: none;
+            }
+        }
+        &:after {
+            transition: .1s ease;
+            content: attr(data-num);
+            border-radius: 50%;
+            font-size: 8px;
+            color: white;
+            width: 13px;
+            height: 13px;
+            text-align: center;
+            line-height: 14px;
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background: $green;
+        }
+    } // Ajax-loader
+    $color1: $blue;
+    $color2: #FF0000;
+    $color3: #FEBF42;
+    @keyframes pulse {
+        0% {
+            background-color: white;
+        }
+        50% {
+            background-color: blue;
+        }
+        100% {
+            background-color: white; // transform: rotate(360deg);
+        }
+    }
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    .loader {
+        &.default {
+            display: block;
+            position: relative;
+            margin: auto; // left: 50%;
+            // top: 50%;
+            width: 100px;
+            height: 100px; // margin: -75px 0 0 -75px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: $color1;
+            animation: spin 2s linear infinite;
+            z-index: 1;
+            &:after {
+                content: "";
+                position: absolute;
+                top: 15px;
+                left: 15px;
+                right: 15px;
+                bottom: 15px;
+                border-radius: 50%;
+                border: 3px solid transparent;
+                border-top-color: $color2;
+                animation: spin 1.5s linear infinite;
+            }
+            &:before {
+                content: "";
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                right: 5px;
+                bottom: 5px;
+                border-radius: 50%;
+                border: 3px solid transparent;
+                border-top-color: $color3;
+                animation: spin 3s linear infinite;
+            }
+        }
+        &.small {
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            left: 20px; // background: url('#{$img-path}loader.svg') 50% 50%\contain no-repeat;
+            border-radius: 50%;
+            box-shadow: 0 0 24px black;
+            animation: pulse 2s linear infinite; // background-color: #333;
+            // margin: 100px auto;
+        }
+    } // buttons:
+    label {
+        &.disabled {
+            user-select: none;
+            opacity: 0.4;
+            transition: opacity 200ms ease-in;
+        }
+    }
+    button[disabled] {
+        @extend label.disabled;
+    }
+}

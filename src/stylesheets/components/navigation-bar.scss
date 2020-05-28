@@ -1,0 +1,84 @@
+#pp_nav_wrapp {
+    position: fixed;
+    top: 68px;
+    width: 54px;
+    margin-left: -76px;
+    z-index: 3;
+    #pp_navigation {
+        width: 60px;
+        background: #FFF;
+        border: 2px solid #E4E7EE;
+        border-radius: 6px;
+        ul {
+            margin: 0;
+            padding: 5px 2px;
+            list-style-type: none;
+            .restrictions-icon * {
+                background-position: 0 -336px;
+            }
+            li {
+                position: relative;
+                a {
+                    position: relative;
+                    display: block;
+                    overflow: initial;
+                    width: 50px;
+                    height: 28px;
+                    background-image: url('/images/menu_item2.png');
+                    background-color: #FFF;
+                    background-repeat: no-repeat;
+                    line-height: 28px;
+                    text-align: center;
+                    *.restrictions-icon {
+                        background-position: 0 -336px;
+                    }
+                    *.ean-icon {
+                        background-position: 0 -28px;
+                    }
+                    *.mmo-icon {
+                        background-position: 0 -140px;
+                    }
+                    *.description-icon {
+                        background-position: 0 -56px;
+                    }
+                    *.features-icon {
+                        background-position: 0 -84px;
+                    }
+                    *.related-icon {
+                        background-position: 0 -112px;
+                    }
+                    *.rtb-icon {
+                        background-position: 0 -168px;
+                    }
+                    *.see-ticket-icon {
+                        background-position: 0 -252px;
+                    }
+                    *.post-ticket-icon {
+                        background-position: 0 -280px;
+                    }
+                    *.history-icon {
+                        background-position: 0 -308px;
+                    }
+                    &:after {
+                        content: attr(rel);
+                        position: absolute;
+                        width: 0;
+                        top: 0;
+                        left: 100%;
+                        padding: 0;
+                        overflow: hidden;
+                        z-index: 3;
+                        color: white;
+                        white-space: nowrap;
+                        background-color: #21409a;
+                        line-height: 28px;
+                        transition: .3s ease;
+                    }
+                    &:hover:after {
+                        width: 150px;
+                    }
+                }
+            }
+        }
+    }
+}

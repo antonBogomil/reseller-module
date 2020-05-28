@@ -1,0 +1,289 @@
+@keyframes appering {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: .7;
+  }
+}
+
+@keyframes falling {
+  from {
+    top: -50%;
+  }
+  to {
+    top: 25%
+  }
+}
+
+.modal {
+  .modal-overlay {
+    position: fixed;
+    width: 100vw;
+    display: none;
+    background: #000;
+    z-index: 98;
+    height: 100vh;
+    top: 0;
+  }
+  .modal-overlay {
+    display: block;
+    animation: appering .5s forwards;
+  }
+
+  .modal-window-wrapper {
+    border: 3px solid $gray;
+    background: white;
+    padding: 13px;
+    width: 585px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    position: fixed;
+    text-align: center;
+    font: 11px $Verdana;
+    z-index: 99;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    transition: transform .1s linear;
+    animation: falling .5s forwards;
+  }
+  .modal-window {
+    * {
+      box-sizing: border-box;
+    }
+
+    .header {
+      display: block;
+      text-align: center;
+      font: bold 12px/15px $Verdana;
+      margin-bottom: 23px;
+    }
+    .button {
+      letter-spacing: -1px;
+    }
+    .hidden {
+      display: none;
+    }
+    &.mmo-window {
+      .react-datepicker__input-container, .react-datepicker-wrapper {
+        width: 100%;
+      }
+      text-align: left;
+      label {
+        &:not(.gorange) {
+          display: block;
+        }
+        text-align: left;
+        &.readOnly {
+          height: 40px;
+        }
+        &.radio {
+          @include radio;
+          color: lighten(black, 30%);
+          transition: .3s ease;
+          span {
+            color: inherit;
+          }
+          input:checked ~ span {
+            color: black;
+          }
+          &:hover {
+            color: black;
+          }
+        }
+        &.require {
+          &:before {
+            content: '*';
+            color: red;
+          }
+        }
+      }
+      .bordered {
+        margin-bottom: 10px;
+        height: 30px;
+        background: transparent;
+        @include bordered;
+        padding: 0 5px;
+        width: 100%;
+        &.error {
+          @include error;
+          background-color: white;
+        }
+        &[data-type=date] {
+          @include datepickerField;
+          margin-left: 0;
+        }
+      }
+      .react-datepicker.bordered {
+        padding-left: 25px;
+        background: url(/images/calendar-icon.png) 5px no-repeat;
+        background-color: #fff;
+      }
+      .alert {
+        color: $red;
+      }
+      .button {
+        width: auto;
+        min-width: 70px;
+        display: inline-block;
+        position: initial;
+        padding: 0 5px;
+        margin: 0px 2px;
+        // display: inline-block;
+        &.file {
+          width: 74px;
+          text-align: center;
+          padding: 0;
+          &.success ~ .fileName {
+            display: inline-block;
+            color: black;
+          }
+          &.error ~ .fileError {
+            color: $red;
+            display: inline-block;
+          }
+          & ~ .fileName, & ~ .fileError {
+            white-space: nowrap;
+            transition: 1s ease;
+            display: none;
+            font: inherit;
+            color: transparent;
+            left: 15px;
+            // top: 50px;
+          }
+        }
+      }
+    }
+    &.image-select-window {
+      select {
+        // height: 27px;
+        margin-bottom: 20px;
+      }
+      select,
+      textarea, input.bordered {
+        padding: 0 5px;
+        border: solid 2px $gray;
+        background: transparent;
+        display: inline-block;
+        box-sizing: border-box;
+        height: 27px;
+        outline: none;
+        width: 100%;
+        border-radius: 5px;
+        &[data-type=date] {
+          @include datepickerField;
+          margin-left: 0;
+        }
+      }
+      label:not(.button) {
+        margin-bottom: 10px;
+      }
+      label.disabled {
+        //user-select: none;
+        //opacity: 0.4;
+        //transition: opacity 200ms ease-in;
+      }
+      label.disabled:hover {
+        cursor: not-allowed;
+      }
+      textarea {
+        width: 100%;
+        max-width: 100%;
+        // max-width: 337px;
+        min-height: 95px;
+        max-height: 150px;
+        @include placeholder {
+          color: black;
+        }
+        &:focus {
+          @include placeholder {
+            color: white;
+          }
+        }
+      }
+      .picture-select {
+        text-align: left;
+        margin-bottom: 25px;
+        // display: block;
+        .file-select {
+          position: relative;
+          display: block;
+        }
+        & > * {
+          display: block;
+          vertical-align: top;
+          // & + * {
+          // 	margin-left: 10px;
+          // }
+        }
+        ul.file-names {
+          display: block;
+          margin: 0;
+          padding-left: 15px;
+          max-height: 150px;
+          overflow-y: auto;
+          li {
+            // max-width: 95px;
+            white-space: nowrap;
+            padding: 2px 0;
+            &:last-child {
+              margin-bottom: 10px;
+            }
+            span {
+              max-width: 80%;
+              display: inline-block;
+              vertical-align: bottom;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+            .remove {
+              border: none;
+              width: 10px;
+              height: 10px;
+              background: url('#{$img-path}crossSmall.png') 50% 50% no-repeat;
+              vertical-align: baseline;
+            }
+          }
+        }
+        .button {
+          position: relative;
+          overflow: none;
+          margin: 10px 0;
+          &.success ~ .fileName {
+            display: inline-block;
+            color: black;
+          }
+          &.error ~ .fileError {
+            color: $red;
+            display: inline-block;
+          }
+          & ~ .fileName,
+          & ~ .fileError {
+            position: absolute;
+            white-space: nowrap;
+            transition: 1s ease;
+            display: none;
+            font: inherit;
+            color: transparent;
+            left: 100px;
+            top: 20px;
+            font: inherit;
+          }
+        }
+        .img-url {
+          label {
+            display: inline-block;
+          }
+        }
+      }
+    }
+    input,
+    textarea {
+      outline: none;
+      &[type=file] {
+        display: none;
+      }
+    }
+  }
+}

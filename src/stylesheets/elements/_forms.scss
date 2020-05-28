@@ -1,0 +1,143 @@
+/*
+    TODO make inner selector
+    (tag selectors such as textarea, input, select)
+    more semantic and specific
+*/
+#react-app, .react-app {
+    form.basic-form {
+        @extend .clearfix;
+        & input,
+        & textarea,
+        & select {
+            min-height: $basic-input-height;
+            border: 2px solid $light-grey;
+            transition: border-color 200ms linear;
+            background-color: white;
+            font-weight: 400;
+            &.rounded {
+                padding-left: $basic-border-radius;
+                ;
+            }
+            &:focus {
+                border-color: $orange;
+            }
+            &::placeholder {
+                font-weight: 400;
+            }
+        }
+        textarea.rounded {
+            padding: 20px;
+        }
+    }
+    textarea,
+    input,
+    select {
+        &:focus {
+            outline: none;
+        }
+        &:required+span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            &:after {
+                height: 100%;
+                content: '*';
+                color: red; // workaround of the html entity with unpredictable line height
+                line-height: 35px;
+            }
+        }
+    }
+    // Never use cascades. NEVER.
+    .login-form-container {
+        input {
+            &:required+span {
+                display: initial;
+                align-items: initial;
+                justify-content: initial;
+                height: initial;
+                position: initial;
+                left: initial;
+                top: initial;
+                transform: initial;
+                &:after {
+                    height: initial;
+                    content: initial;
+                    color: initial;
+                    line-height: initial;
+                }
+            }
+        }
+    }
+    
+    input {
+        margin: 0;
+        color: black;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        &.rounded {
+            padding-left: $basic-border-radius;
+            padding-right: $basic-border-radius;
+        }
+        &:disabled {
+            background-color: lightgray;
+        }
+    }
+    
+    // emulations of input: 
+    .file-input {
+        label:hover {
+            cursor: pointer;
+        }
+    }
+    
+    label {
+        &.white {
+            color: white;
+        }
+        &.blue {
+            color: $blue-velvet;
+        }
+        &.orange {
+            color: $orange;
+        }
+        line-height:25px;
+    }
+    
+    select {
+        @mixin reset-system-styling() {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        &.normalized {
+            @include reset-system-styling();
+            background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%);
+            background-position: calc(100% - 20px) 0.75em, calc(100% - 15px) 0.75em;
+            background-size: 5px 5px, 5px 5px;
+            background-repeat: no-repeat;
+        }
+    }
+    
+    .ice-input {
+        margin: 0 0 20px 0;
+        padding: 10px 10px 10px 30px;
+    }
+    
+    .full-size {
+        display: block;
+        width: 100%;
+    }
+    
+    .rounded {
+        border-radius: $basic-border-radius;
+        &.rounded-bit {
+            border-radius: $little-border-radius;
+        }
+    }
+}

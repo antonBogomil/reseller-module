@@ -1,0 +1,11 @@
+.modal.add-brand-logo-modal {
+  .modal-window.loading {
+    z-index: 999;
+    background-size: auto;
+
+
+    background-position: 50% 50%;
+    background-image: url('#{$img-path}load.gif');
+    background-repeat: no-repeat;
+  }
+}

@@ -1,0 +1,42 @@
+main {
+  //min-height: calc(100vh - #{$footer-height} - #{$header-height});
+  //height: calc(100vh - #{$footer-height});
+}
+
+aside {
+  &.info-messages {
+    position: fixed;
+    top: 50px;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    z-index: 0;
+  }
+} 
+footer {
+  width: 100%;
+  height: $footer-height;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f1f1;
+  z-index: 2;
+}
+
+section {
+  &.section-blue {
+    background-color: $blue-velvet;
+  }
+}
+
+.fixed {
+    position: fixed;
+}
+.flex {
+  display: flex;
+}
+.flex-centered {
+  align-items: center;
+  justify-content: center;
+}

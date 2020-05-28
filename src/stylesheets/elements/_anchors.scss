@@ -1,0 +1,31 @@
+a {
+    text-decoration: none;
+    &:hover,
+    &:active,
+    &:focus {
+        cursor: pointer;
+        outline: none;
+    }
+}
+
+a.white {
+    color: white;
+}
+
+a.blue {
+    color: $night-blue;
+    &:hover {
+        color: $orange;
+    }
+}
+
+a.orange {
+    color: $orange;
+    &:hover {
+        color: $night-blue;
+    }
+}
+
+a.breadcrumb {
+    line-height: 24px;
+}

@@ -1,0 +1,13 @@
+#top-nav-bar {
+    &.fixed #pull {
+        display: block;
+        width: 30px;
+        height: 12px;
+        line-height: 8px;
+    }
+}
+
+// due to fixed header - translate the #page_content:
+#top-nav-bar.fixed ~ #page_content {
+    top: 33px;
+}

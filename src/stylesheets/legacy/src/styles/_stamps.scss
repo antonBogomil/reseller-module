@@ -1,0 +1,29 @@
+.stamps {
+  white-space: nowrap;
+  .logo {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+    background-image: url('#{$img-path}stamps_live_sprite2.png');
+    &.brand {
+      background-position: -50px 0;
+      // background-image: url('#{$img-path}stamp_brand_active.png');
+      &.active {
+        background-position: 0;
+
+        // background-image: url('#{$img-path}stamp_brand.png');
+      }
+    }
+    &.superUser {
+      background-position: -150px 0;
+
+      // background-image: url('#{$img-path}stamp_icecat_active.png');
+      &.active {
+        background-position: -100px 0;
+        // background-image: url('#{$img-path}stamp_icecat.png');
+      }
+    }
+  }
+}

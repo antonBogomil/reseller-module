@@ -1,0 +1,76 @@
+
+
+$errorBgColor: #f4f8ff !default;
+$successBgColor: #f4f8ff !default;
+$infoBgColor: #f4f8ff !default;
+$warningBgColor: #f4f8ff !default;
+
+
+@import '../../node_modules/react-redux-toastr/src/styles/index';
+
+
+.redux-toastr {
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+  .top-left, .top-right, .top-center, .bottom-left, .bottom-right, .bottom-center {
+    min-width: $toastr-width;
+    width: unset;
+    position: fixed;
+    z-index: 99999999;
+    padding: 0 $defaultSpace;
+  }
+  .toastr {
+   box-shadow: none;
+   border-radius: 12px;
+    &:hover:not(.rrt-message) {
+      box-shadow: none;
+      opacity: 1;
+    }
+    &.rrt-info {
+      border: 1px solid grey;
+    }
+    &.rrt-info  * {
+      background-color: $infoBgColor;
+      font-family: 'proxima_nova_alt, Verdana, Arial, Helvetica, sans-serif';
+      font-size: 16px;
+      color: grey;
+    }
+    .rrt-left-container {
+      width: 10px;
+
+      .toastr-icon {
+        display: none;
+      }
+    }
+
+    .rrt-middle-container {
+      width: calc(90% - 40px);
+      margin-left: 40px;
+      .rrt-title {
+        font-size: 24px;
+      }
+    }
+
+    &.rrt-success  * {
+      background-color: $successBgColor;
+      font-family: 'proxima_nova_alt, Verdana, Arial, Helvetica, sans-serif';
+      font-size: 16px;
+      color: green;
+    }
+
+    &.rrt-success {
+      border: 1px solid green;
+    }
+
+    &.rrt-error  * {
+      font-family: 'proxima_nova_alt, Verdana, Arial, Helvetica, sans-serif';
+      font-size: 16px;
+      color: red;
+      background-color: $errorBgColor;
+    }
+    &.rrt-error {
+      border: 1px solid red;
+    }
+  }
+}

@@ -1,0 +1,87 @@
+@import '../../stylesheets/basics/var';
+
+$border-radius: 4px;
+/*
+  r- prefix mean react- and it
+  is added as there are conflicts with legacy _modal scss module
+  from marionette app
+  TODO: remove old modal module and then remove prefixes
+*/
+.new-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .fa {
+    font-family: 'FontAwesome' !important;
+  }
+  .fade-appear {
+    opacity: 0.01;
+
+    &.fade-appear-active {
+      opacity: 1;
+      transition: opacity 0.1ms ease-in;
+    }
+  }
+
+  .modal-inner {
+    position: relative;
+
+    .modal-inner-wrapper {
+      background-color: white;
+      border-radius: calc(#{$border-radius} + 2px);
+      padding: 20px;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 350px;
+    }
+
+    .r-modal-exit-button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 30px;
+      float: right;
+      border: none;
+      z-index: 2;
+      background-color: transparent;
+      color: transparent;
+      .r-modal-exit-button-icon {
+        color: $light-orange;
+        transition: color 0.25s ease-in;
+        background-color: transparent;
+
+        &:hover {
+          color: $orange;
+        }
+      }
+    }
+  }
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    width: 200vw;
+    height: 200vh;
+    background: black;
+    z-index: -1;
+    animation: appearing 10ms forwards;
+  }
+
+  @keyframes appearing {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.6;
+    }
+  }
+}

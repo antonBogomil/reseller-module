@@ -1,0 +1,89 @@
+.text-line {
+  display: inline-block;
+  &_single-line {
+    white-space: nowrap;
+  }
+  &_cropped {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &_height {
+    &_medium {
+      line-height: 25px;
+    }
+  }
+  &_hoverable {
+    cursor: pointer;
+  }
+  &_separated {
+    @mixin last-el {
+      &:last-of-type:after {
+        content: ''
+      }
+    }
+    &_comma {
+      &:after {
+        content: ', '
+      }
+      @include last-el;
+    }
+    &_semicolon {
+      &:after {
+        content: ';'
+      }
+      @include last-el;
+    }
+  }
+  &_color {
+    &_grey, &_gray {
+      color: grey;
+    }
+    &_green {
+      color: green;
+    }
+    &_orange {
+      color: darken($yellow, 10%);
+    }
+    &_red {
+      color: $red;
+    }
+    &_blue {
+      color: $blue;
+    }
+  }
+}
+
+.feature-label {
+  font: 12px/19px $Tahoma;
+  position: relative;
+  font-weight: normal;
+  display: block;
+  &_inline {
+    display: inline-block;
+  }
+  &_dashed {
+    border-bottom: 1px dashed #111;
+  }
+  &_fixed-height {
+    height: 30px;
+  }
+  &_required {
+      padding-left: 5px;
+      padding-right: 5px;
+      &:before {
+        content: "* ";
+        left: 0;
+        position: absolute;
+        color: $red;
+      }
+    }
+}
+
+.header {
+  font-family: $Verdana;
+  &_medium {
+    font-size: 14px;
+  }
+}

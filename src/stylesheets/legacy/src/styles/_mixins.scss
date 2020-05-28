@@ -1,0 +1,223 @@
+$google-grey: #C6C6BE;
+$google-blue: #4d90fe;
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content
+  }
+  &:-moz-placeholder {
+    @content
+  }
+  &::-moz-placeholder {
+    @content
+  }
+  &:-ms-input-placeholder {
+    @content
+  }
+}
+
+@mixin bordered($color: $grey) {
+  display: block;
+  border: 3px solid $color;
+  background-color: white;
+  border-radius: 8px;
+}
+
+@mixin error {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px $light-red;;
+  // background-color: lighten($light-red, 20%)
+}
+
+@mixin success {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67B168;
+  background-color: lighten(#67B168, 20%)
+}
+
+@mixin warning {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px $yellow;
+  background-color: lighten($yellow, 20%)
+}
+
+@mixin radio {
+  cursor:pointer;
+}
+
+@mixin datepickerField {
+  padding-left: 25px;
+  background: url('#{$img-path}calendar-icon.png') 5px center no-repeat;
+  background-color: white;
+}
+@mixin checkbox {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  padding-left: 20px;
+  // min-width: 100px;
+  // max-height: 20px;
+  white-space: normal;
+  transition: .1s ease;
+  outline: none;
+  &.disabled {
+    .mark {
+      background-color: lighten($grey, 3%);
+    }
+  }
+  &:hover {
+    .mark {
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.1);
+    }
+  }
+  &:focus {
+    .mark {
+      border-color: $google-blue;
+    }
+  }
+  &.hidden {
+    margin: 0;
+    overflow: hidden;
+    max-height: 0;
+  }
+  
+  &:hover {
+    background: lighten($grey, 5%);
+  }
+  input[type=checkbox] {
+    display: none;
+
+    &:checked {
+      &.partial + .mark:after {
+        background: url('#{$img-path}checkmark-partial.png') 50% 50%/contain no-repeat;
+        // color: black;
+        // transform: scale(1);
+      }
+      & + .mark:after {
+        background: url('#{$img-path}checkmark.png') 50% 50%/contain no-repeat;
+        // color: black;
+        // transform: scale(1);
+      }
+    }
+  }
+  .mark {
+    // top: 2px;
+    // left: 2px;
+    display: block;
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    border: 1px solid $google-grey;
+    // transition: box-shadow .3s ease;
+    background-color: white;
+    &:after {
+      position: absolute;
+      top: -6px;
+      left: -5px;
+      font-size: 13px;
+      // transition: .3s ease;
+      // transform: scale(0);
+      content: '';
+      color: darken($gray, 20%);
+      width: calc(100% + 10px);
+      height: calc(100% + 10px);
+    }
+  }
+}
+
+@mixin triangle($direction: 3, $size: 10px, $color: $gray) {
+  display: block;
+  border-style: solid;
+  @if $direction==0 {
+    border-width: 0 $size/2 $size $size/2;
+    border-color: $color transparent;
+  }
+  @else if $direction==1 {
+    border-width: $size/2 0 $size/2 $size;
+    border-color: transparent $color;
+  }
+  @else if $direction==2 {
+    border-width: $size $size/2 0 $size/2;
+    border-color: $color transparent;
+  }
+  @else if $direction==3 {
+    border-width: $size/2 $size $size/2 0;
+    border-color: transparent $color;
+  }
+}
+
+.default-toggle-button {
+    width: 14px;
+    height: 14px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: url('#{$img-path}minus-yellow.png') 50% 50% no-repeat;
+    z-index: 2;
+    &.active {
+      background-image: url('#{$img-path}plus-yellow.png');
+    }
+    &_inline {
+      display: inline-block;
+    }
+}
+
+.flex-grid {
+  .flex-row {
+     display: flex;
+     .flex-item {
+      &:nth-last-child(2) {
+        max-width: 50%;
+      }
+        word-wrap: break-word;
+        flex: 1;
+        &.bordered {
+          border-radius: 0;
+          border: 1px solid $gray;
+        }
+     } 
+  }
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+.upper {
+	text-transform: uppercase;
+}
+.right {
+	display: block;
+	float: right;
+}
+.left {
+	display: block;
+	float: left;
+}
+
+.clearfix {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}

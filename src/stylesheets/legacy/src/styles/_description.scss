@@ -1,0 +1,94 @@
+.feature-wrapper {
+    &_spaced {
+        margin: 0 10px 15px 35px;
+    }
+    &_description {
+        // .toggle-container-header_light {
+        //   margin-left: 25px;
+        // }
+        &__mandatory-languages {
+            padding: 20px;
+            background: $light-yellow;
+            border: 1px dotted black;
+        }
+        .toggle-container-button {
+            left: 0;
+        }
+        input[type=file] {
+            display: none;
+        }
+        thead {
+            th:first-of-type {
+                width: 40%;
+            }
+        }
+        textarea {
+            height: 200px;
+        }
+        .button {
+            &.file-select {
+                position: relative;
+                margin: 0;
+                letter-spacing: -1px;
+                &:before {
+                    content: 'or';
+                    font-weight: normal;
+                    top: 2px;
+                    left: -40px;
+                    position: absolute;
+                }
+                &:after {
+                    max-width: 130px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    font-weight: normal;
+                    content: attr(title);
+                    position: absolute;
+                    left: 107%;
+                }
+            }
+        }
+        .description-buttons {
+            .button.gorange {
+                width: 135px;
+                margin-top: 10px;
+            }
+        }
+    }
+    .bullet-points {
+        $bullet-point-line-height: 18px;
+        margin: 3px 0 3px 0;
+        textarea {
+          line-height: $bullet-point-line-height;
+        }
+        .points {
+            position: absolute;
+            left: -50px;
+            height: 100%;
+            padding-top: 2px;
+            overflow: hidden;
+            ul {
+                height: 100%;
+                margin: 0;
+                list-style-type: disc;
+                li {
+                  line-height: $bullet-point-line-height;
+                }
+            }
+        }
+        textarea {
+            white-space: nowrap;
+        }
+    }
+}
+
+.description-action-buttons {
+    margin-bottom: 10px;
+}
+
+.add-lang {
+    position: relative;
+    .plus {
+        right: 24px;
+    }
+}

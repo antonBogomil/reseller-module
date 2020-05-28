@@ -1,0 +1,81 @@
+@import './_brandLogoModal.scss';
+@import './_addBrandLogoModal.scss';
+@import './_brandName.scss';
+
+#supplier_form {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  table.section {
+    & > tbody {
+      & > tr {
+        & > td:first-child {
+          width: 250px;
+        }
+        & > td.main.info_bold {
+        }
+      }
+    }
+  }
+
+  input[type='text'] {
+    width: 250px;
+    height: 30px;
+  }
+
+  #brand-logo-container {
+    #brand-logo-image-wrapper {
+      width: 100%;
+      img {
+        float: right;
+      }
+    }
+  }
+
+  // tr#brand-logo-row {
+  //   box-sizing: border-box;
+  //   & * {
+  //     font-size: 11px;
+  //     box-sizing: border-box;
+  //   }
+  //   & > td {
+  //     padding: 0;
+  //   }
+  //   a:not([href]) {
+  //     color: black;
+  //   }
+  //   .row-info {
+  //     display: inline-block;
+  //     float: left;
+  //     width: 250px;
+  //     height: 36px;
+  //     padding: 0 0 0 20px;
+  //     line-height: 36px;
+  //     font-family: sans-serif;
+  //   }
+  //   .edit-field {
+  //     display: inline-block;
+  //     float: left;
+  //     width: calc(100% - 200px);
+  //   }
+  //   .brand-logo-url-data {
+  //     padding: 0;
+  //     height: 40px;
+  //     line-height: 40px;
+  //     padding: 0 0 0 20px;
+  //     & > a {
+  //       display: block;
+  //       height: 100%;
+  //       line-height: 40px;
+  //     }
+  //   }
+  //   .main {
+  //     padding: 0;
+  //   }
+  // }
+
+  #lang-selector {
+  }
+}

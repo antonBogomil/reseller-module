@@ -1,0 +1,177 @@
+#pp_navigation {
+  li {
+    &.general-icon:hover {
+      a {
+        background-position: 100% 0;
+      }
+    }
+    &.ean-icon {
+      &:hover {
+        a {
+          background-position: 100% -28px;
+        }
+      }
+      a {
+        background-position: 0 -28px;
+      }
+    }
+    &.description-icon {
+      &:hover {
+        a {
+          background-position: 100% -56px;
+        }
+      }
+      a {
+        background-position: 0 -56px;
+      }
+    }
+    &.features-icon {
+      &:hover {
+        a {
+          background-position: 100% -84px;
+        }
+      }
+      a {
+        background-position: 0 -84px;
+      }
+    }
+    &.related-icon {
+      &:hover {
+        a {
+          background-position: 100% -112px;
+        }
+      }
+      a {
+        background-position: 0 -112px;
+      }
+    }
+    &.rtb-icon {
+      &:hover {
+        a {
+          background-position: 100% -168px;
+        }
+      }
+      a {
+        background-position: 0 -168px;
+      }
+    }
+    &.localization-icon {
+      &:hover {
+        a {
+          background-position: 100% -196px;
+        }
+      }
+      a {
+        background-position: 0 -196px;
+      }
+    }
+    &.copy-icon {
+      &:hover {
+        a {
+          background-position: 100% -224px;
+        }
+      }
+      a {
+        background-position: 0 -224px;
+      }
+    }
+    &.see-ticket-icon {
+      &:hover {
+        a {
+          background-position: 100% -252px;
+        }
+      }
+      a {
+        background-position: 0 -252px;
+      }
+    }
+    &.post-ticket-icon {
+      &:hover {
+        a {
+          background-position: 100% -280px;
+        }
+      }
+      a {
+        background-position: 0 -280px;
+      }
+    }
+    &.history-icon {
+      &:hover {
+        a {
+          background-position: 100% -308px;
+        }
+      }
+      a {
+        background-position: 0 -308px;
+      }
+    }
+    &.restrictions-icon {
+      &:hover {
+        a {
+          background-position: 100% -336px;
+        }
+      }
+      a {
+        background-position: 0 -336px;
+      }
+    }
+    &.mmo-icon {
+      &:hover {
+        a {
+          background-position: 100% -140px;
+        }
+      }
+      a {
+        background-position: 0 -140px;
+      }
+    }
+    a {
+      background-color: #FFF;
+      background: url('#{$img-path}/menu_item2.png') no-repeat;
+      display: block;
+      line-height: 28px;
+      height: 28px;
+      text-align: center;
+      /*overflow: hidden;*/
+      transition: background-color 0.3s 0.1s ease;
+    }
+  }
+  a {
+    position: relative;
+    overflow: initial;
+    width: 50px;
+    &:hover {
+      &:after {
+        width: 150px;
+        padding: 0 15px;
+      }
+    }
+    &:after {
+      content: attr(rel);
+      width: 0;
+      overflow: hidden;
+      left: 100%;
+      z-index: 3;
+      position: absolute;
+      top: 0;
+      color: white;
+      white-space: nowrap;
+      transition: .3s ease;
+      background-color: $blue;
+      line-height: 28px;
+      padding: 0;
+    }
+  }
+}
+
+footer {
+  background: $light-blue;
+  border-radius: 6px;
+  padding: 0 10px;
+  .time {
+    color: grey;
+  }
+  * {
+    line-height: 35px;
+  }
+}

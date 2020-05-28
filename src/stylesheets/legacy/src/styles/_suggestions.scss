@@ -1,0 +1,71 @@
+.suggestions {
+  position: absolute;
+  border: 3px solid $gray;
+  background: white;
+  z-index: 10;
+  width: 100%;
+  max-height: 110px;
+  overflow: auto;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0px;
+    li {
+      color: darken($gray, 40%);
+      position: relative;
+      line-height: 21px;
+      padding: 0 25px 0 10px;
+      max-width: 100%;
+      padding-right: 10px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      transition: .1s ease;
+      &:hover {
+        background: lighten($blue, 55%);
+      }
+      &.active {
+        background: lighten($blue, 55%);
+      }
+      button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.input-suggester {
+  position: absolute;
+  left: 0;
+  @include bordered;
+  z-index: 5;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  max-height: 275px;
+  border-top: 0;
+  overflow: auto;
+  background: white;
+  ul {
+    list-style: none;
+    padding: 3px;
+    margin: 0;
+    li {
+      &.disabled {
+        color: lighten($grey, 1%);
+        cursor: initial;
+      }
+      padding: 6px 10px;
+      cursor: pointer;
+      // height: 25px;
+      &.active, &:hover:not(.disabled) {
+        color: white;
+        background: $blue;
+      }
+    }
+  }
+}

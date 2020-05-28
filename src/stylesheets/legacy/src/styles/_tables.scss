@@ -1,0 +1,234 @@
+$basic-gradient: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
+.table-wrapper {
+  .pagination {
+    .page {
+      color: $blue;
+      font: bold 12px $Arial;
+      text-decoration: none;
+      &_active {
+        color: black;
+      }
+      & + .page {
+        margin-left: 5px;
+      }
+      &_next {
+        &:after {
+          padding-left: 5px;
+          content: ' >>';
+        }
+      }
+      &_prev {
+        &:before {
+          padding-right: 5px;
+          content: '<< ';
+        }
+      }
+    }
+  }
+  &.basic-table {
+    position: relative;
+    &_fixed {
+      .row > div {
+        text-align: left;
+      }
+      table {
+        tr:not(.row-info) {
+          cursor: pointer;
+        }
+        tr.row-info {
+          border-bottom: 3px solid $grey;
+          &.hidden {
+            .toggle {
+              padding: 0;
+              // display: block;
+              height: 0;
+              & ~ div {
+                height: 0;
+                overflow: hidden;
+              }
+            }
+          }
+          td {
+            padding: 0;
+          }
+          .toggle {
+            // padding: 10px;
+            height: auto;
+            overflow: hidden;
+            // display:block;
+          }
+        }
+      }
+    }
+    .table {
+      $border: 1px solid #d2d2d2;
+      // border-radius: 8px;
+      // border: $border;
+      // overflow: hidden;
+      font-family: $Verdana;
+      text-align: center;
+      caption {
+        font: inherit;
+        padding: 7px 0;
+        border-bottom: $border;
+      }
+      label {
+        text-align: left;
+      }
+      tr {
+        &:nth-of-type(2n):not(.row-info) {
+          background: #f8f9fd;
+        }
+        &.inactive {
+          td {
+            opacity: 0.4;
+          }
+        }
+        td {
+          padding: 7px 3px;
+          &:first-child {
+            padding-left: 5px;
+          }
+        }
+      }
+      // thead {
+      //   th {
+      //     height: 35px;
+      //     font-family: $Verdana;
+      //   }
+      //   background:$basic-gradient;
+      //   border-bottom: $border;
+      // }
+    }
+  }
+  &.ean-features-table .table {
+    table {
+      .ean {
+        cursor: pointer;
+        transition: color 0.3s ease;
+        text-decoration: underline;
+        &:hover {
+          color: lighten(black, 30%);
+        }
+        &.active ~ canvas {
+          max-height: 58px;
+        }
+        & ~ canvas {
+          margin-left: 75px;
+          overflow: hidden;
+          display: block;
+          max-height: 0;
+        }
+      }
+      .red {
+        color: red;
+      }
+      th {
+        text-align: left;
+      }
+      tr {
+        input[type='text'] {
+          &.add-ean {
+            width: 246px;
+          }
+          height: $line-height;
+        }
+        & > *:first-child {
+          padding-left: 4%;
+        }
+        & > *:last-child {
+          padding-right: 1%;
+        }
+      }
+    }
+  }
+  .table {
+    position: relative;
+    .mapping-table {
+      border-collapse: collapse;
+      tr > * {
+        border: 1px solid white;
+      }
+    }
+    & ~ .add {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      right: -110px;
+      background-color: white;
+      &_mmo {
+        .logo {
+          background-image: url('#{$img-path}multimedia.svg');
+        }
+      }
+      span {
+        display: block;
+        color: $blue;
+        font: 11px $Verdana;
+        text-align: center;
+      }
+      .logo {
+        width: 100px;
+        height: 75px;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+      }
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+  }
+}
+
+.table-info-popup {
+  @include bordered;
+  position: absolute;
+  background: white;
+  z-index: 3;
+  width: 400px;
+  padding: 0 10px 3px;
+  .datepicker {
+    margin: 0;
+  }
+  .checkbox {
+    @include checkbox;
+    transition: 0.3s ease;
+    width: calc(100% - 50px);
+    &.success {
+      @include success;
+    }
+    &.error {
+      @include error;
+    }
+  }
+  h6 {
+    margin-top: 10px;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -12px;
+    @include triangle(3);
+  }
+}
+
+.mappingTable {
+  .single-line {
+    white-space: nowrap;
+    & > *:not(.block) {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
+#markets-table {
+  .table-header__column {
+    height: 37px;
+    line-height: initial;
+  }
+}

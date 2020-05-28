@@ -1,0 +1,45 @@
+$total-columns: 12;
+
+.container {
+  width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+  @extend .clearfix;
+}
+.row {
+  width: 100%;
+  position: relative;
+  @extend .clearfix;
+}
+.float {
+  .float-right {
+    float: right
+  }
+  .float-left {
+    float: left;
+  }
+}
+@for $i from 1 through $total-columns {
+  @media (max-width: 768px) {
+    .col-sm-#{$i} {
+      width: 100% / 12 * $i;
+      float: left;
+      position: relative;
+
+      &.float.float-right {
+        float: right;
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    .col-lg-#{$i} {
+      width: 100% / 12 * $i;
+      float: left;
+      position: relative;
+
+      &.float.float-right {
+        float: right;
+      }
+    }
+  }
+}

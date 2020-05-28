@@ -1,0 +1,22 @@
+.hideBlock {
+	transition: max-height .3s ease;
+	overflow: hidden;
+	&_initHeight {
+		position: absolute;
+		z-index: -1;
+		opacity: 0;
+	}
+	&_hidden {
+		max-height: 0 !important;
+		padding: 0;
+		border: 0;
+	}
+}
+.inputField {
+	width: 100%;
+	color: $dark-grey;
+	display: block;
+	height: 21px;
+	border: 1px solid #A9A9A9;
+	background: white;
+}

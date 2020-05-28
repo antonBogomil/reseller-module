@@ -1,0 +1,43 @@
+/*
+  max-width
+*/
+
+@media (max-width: 1024px) {
+  body.bg {
+    background-image: url('/images/redesign/app-bg-mobile.png');
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 18px;
+    // remove unscrollness 
+    &.unscrollable {
+      height: auto;
+    }
+  }
+  footer {
+    position: static;
+  }
+}
+
+/*
+  min-width
+*/
+@media (min-width: 320px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 720px;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    width: 1024px;
+  }
+}

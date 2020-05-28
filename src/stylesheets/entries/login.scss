@@ -1,0 +1,163 @@
+@import '../basics/helpers';
+@import '../basics/var';
+@import '../basics/animations';
+.login-form-container {
+    width: 100%;
+    height: calc(100vh - #{$footer-height});
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 768px) {
+        height: unset;
+    }
+    .login-form-block {
+        width: 100%;
+        height: auto;
+        @extend .clearfix;
+    }
+    .form-wrapper {
+        height: 100%;
+        background-color: #142866;
+        padding: 0 30px 30px;
+        .logo-container {
+            margin: 35px auto 0;
+            img.logo {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        a {
+            text-align: center;
+            &:hover {
+                color: $orange;
+            }
+        }
+    }
+    .text-wrapper {
+        padding: 20px 40px 0 40px;
+    }
+    form#login,
+    form#forgot-password,
+    form#reset-password {
+        margin: 25px 0;
+        input,
+        button {
+            height: 50px;
+        }
+    }
+    form#login {
+        min-height: 260px;
+    }
+    form#forgot-password {
+        div#captcha-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            min-height: 81px;
+        }
+    }
+    form#reset-password {
+        label {
+            padding-left: $basic-border-radius;
+        }
+    }
+    button {
+        &.blue {
+            color: white;
+            background-color: $night-blue;
+            &:hover {
+                color: $night-blue;
+                background-color: white;
+            }
+            &:active {
+                color: white;
+                background-color: $sky-blue;
+            }
+            &:focus {
+                color: $night-blue;
+                background-color: white;
+            }
+            @extend .button-transition;
+        }
+        &.orange {
+            color: black;
+            background-color: $orange;
+            &:hover {
+                color: $orange;
+                background-color: white;
+            }
+            &:focus {
+                color: $night-blue;
+                background-color: white;
+            }
+            @extend .button-transition;
+        }
+    }
+}
+
+
+/*
+  max-width
+*/
+
+@media all and (min-width: 768px),
+all and (max-width: 1024px) {
+    .login-form-block {
+        width: 450px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 1024px) {
+    .text-wrapper {
+        padding: 0 20px 0 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    .login-form-block {
+        .text-wrapper {
+            margin-top: 70px;
+            padding: 0 20px;
+            h1 {
+                text-align: center;
+            }
+            p {
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .login-form-block {
+        width: 100%;
+    }
+}
+
+
+/*
+  min-width
+*/
+
+@media (min-width: 320px) {
+    .login-form-block {
+        padding: 50px 20px 50px 20px;
+        img.logo {
+            width: 180px;
+        }
+    }
+}
+
+@media (min-width: 769px) {
+    .login-form-block {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .login-form-block {
+        padding: 0 50px;
+    }
+}

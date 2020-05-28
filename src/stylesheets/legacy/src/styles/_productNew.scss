@@ -1,0 +1,191 @@
+#suggester-container {
+  .input-suggester {
+    margin-top: -4px;
+    position: absolute;
+    left: 0;
+    display: block;
+    border: 3px solid #E6E6F0;
+    border-radius: 0 0 8px 8px;
+    z-index: 5;
+    max-height: 275px;
+    border-top: 0;
+    overflow: auto;
+    background: #fff;
+    ul {
+      list-style: none;
+      padding: 3px;
+      margin: 0;
+      li {
+        padding: 6px 10px;
+        cursor: pointer;
+        &:hover {
+          color: #fff;
+          background: #21409a
+        }
+      }
+      li.active {
+        color: #fff;
+        background: #21409a
+      }
+    }
+  }
+}
+
+.product-new {
+  border: 3px solid #E4E7EE;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  *:focus {
+    outline: 0;
+  }
+  .container-fluid {
+    .row:first-child {
+      margin-top: 15px;
+    }
+    .row {
+      overflow: hidden;
+      #category-select {
+        .select2-selection--single {
+          width: auto;
+          height: 33px;
+          border: 3px solid #E4E7EE;
+          border-radius: 6px;
+          .select2-selection__arrow {
+            height: 31px;
+          }
+        }
+      }
+      div[class^="col-xs-"] {
+        display: inline-block;
+        vertical-align: middle;
+        float: left;
+        padding: 0;
+        margin-right: -2px;
+        .margin-row {
+          margin: 5px 40px 5px 0;
+          input[type="text"], select {
+            border: 3px solid #E4E7EE;
+            border-radius: 6px;
+            background: white;
+            height: 25px;
+            height: 33px;
+            box-sizing: border-box;
+            width: 445px;
+            line-height: 25px;
+            padding-left: 10px;
+          }
+          input::-webkit-input-placeholder {
+            color: #000;
+          }
+          input:-moz-placeholder {
+            color: #000;
+          }
+          input:-ms-input-placeholder {
+            color: #000;
+          }
+          .search-input::-webkit-input-placeholder {
+            color: #000;
+          }
+          .search-input:-moz-placeholder {
+            color: #000;
+          }
+          .search-input:-ms-input-placeholder {
+            color: #000;
+          }
+          .search-input, .search-dropdown {
+            border: 3px solid #E4E7EE;
+            border-radius: 6px;
+            line-height: 25px;
+            padding: 0 10px;
+            outline: 0;
+            margin: 11.5px;
+          }
+          .select2-selection {
+            width: 200px;
+          }
+          .search-input-wrapper {
+            float: left;
+          }
+          .search-dropdown-wrapper {
+            float: left;
+            margin: 11.5px;
+          }
+          .search-button {
+            border: 0 none;
+            border-radius: 5px;
+            color: #000000;
+            cursor: pointer;
+            height: 31px;
+            width: 110px;
+            font-family: Verdana ,sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            position: relative;
+            padding: 1px 6px 1px 26px;
+            margin: 11.5px;
+            span {
+              background: url("#{$img-path}interface/search-icon.png") no-repeat;
+              display: block;
+              height: 27px;
+              width: 26px;
+              position: absolute;
+              top: 3px;
+              left: 0;
+            }
+          }
+          #is-dangerous {
+            vertical-align: middle;
+          }
+        }
+      }
+      div[class^="col-xs-2"] {
+        .margin-row-info-small, .margin-row-info-large {
+          font-family: Verdana, Arial, Helvetica, sans-serif;
+          font-size: 11px;
+          text-align: right;
+          .mandatory {
+            color: red;
+          }
+        }
+        .margin-row-info-large {
+          margin: 14px 10px 5px 40px;
+        }
+        .margin-row-info-small {
+          margin: 7px 10px 5px 40px;
+        }
+      }
+      div[class^="col-xs-12"] {
+        .margin-row-info {
+          text-align: left;
+          margin: 5px 10px 5px 163px;
+          font-family: Verdana, Arial, Helvetica, sans-serif;
+          font-size: 11px;
+          .mandatory {
+            color: red;
+          }
+        }
+      }
+    }
+    .custom-checkbox {
+      @include checkbox;
+      padding-left: 0;
+      &_inline {
+        display: inline-block;
+      }
+      .mark {
+        display: inline-block;
+        position: relative;
+      }
+    }
+    #virtual-category, #product-family, #product-series, #product-series-empty {
+      display: none;
+      input {
+        vertical-align: middle;
+      }
+    }
+    button {
+      margin: 15px 0;
+    }
+  }
+}

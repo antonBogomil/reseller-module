@@ -1,0 +1,53 @@
+/*
+  variables
+*/
+@import 'basics/var';
+
+/*
+  place for libraries
+*/
+@import './custom_toastr.scss';
+@import '../../node_modules/css-reset-and-normalize-sass/scss/flavored-reset-and-normalize.scss';
+// @import '../../node_modules/normalize-scss/sass/normalize.scss';
+
+/*
+  mixins
+*/
+@import 'mixins/font-face';
+
+/*
+  basic conf
+*/
+@import 'basics/font-face';
+@import 'basics/helpers';
+@import 'basics/grid';
+@import 'basics/general';
+@import 'basics/animations';
+@import 'basics/typography';
+
+/*
+  main building blocks: header, main, footer etc.
+*/
+@import 'basics/layout';
+
+/*
+  different html elements
+*/
+@import 'elements/forms';
+@import 'elements/tables';
+@import 'elements/btns';
+@import 'elements/anchors';
+@import 'elements/imgs';
+
+@import 'modules/localizable-inputs';
+
+@import 'components/navigation-bar.scss';
+@import 'components/header.scss';
+
+
+/*
+  media rules
+*/
+@import 'media/media';
+
+

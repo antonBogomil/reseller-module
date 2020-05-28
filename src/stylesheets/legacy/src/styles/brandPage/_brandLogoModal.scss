@@ -1,0 +1,150 @@
+.brand-logo.modal {
+  .modal-window-wrapper {
+    width: 1000px;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  &.active {
+    display: block;
+    box-shadow: #000000 0px 0px 20px 0px;
+  }
+  @include clearfix;
+  .img-block {
+    & > * {
+      display: inline-block;
+      vertical-align: top;
+    }
+    .img-wrapper {
+      height: 450px;
+      overflow: hidden;
+      width: 64%;
+      .img {
+        &.draggable {
+          cursor: move;
+        }
+        &.loading {
+          background-size: auto;
+          background-image: url('#{$img-path}load.gif');
+        }
+        img {
+          display: none;
+          width: auto;
+          max-width: 100%;
+          height: auto;
+          max-height: 100%;
+        }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        will-change: translate;
+        border: 1px solid $gray;
+        transition: transform .3s ease;
+        width: 100%;
+        box-sizing: border-box;
+        margin: auto;
+        height: inherit;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        background-position: 50% 50%;
+        background-size: contain;
+      }
+    }
+  }
+  .controls {
+    width: 100%;
+    padding-top: 20px;
+    button {
+      border: none;
+      outline: none;
+    }
+    .slide-buttons {
+      float: right;
+      button {
+        width: 11px;
+        height: 29px;
+        &.prev {
+          background: url('#{$img-path}arrow-left.png') 50% 50% no-repeat;
+        }
+        &.next {
+          margin-left: 30px;
+          background: url('#{$img-path}arrow-right.png') 50% 50% no-repeat;
+        }
+      }
+    }
+    .buttons {
+      width: 65%;
+      margin: auto;
+      text-align: center;
+      display: inline-block;
+      .button-wrapper {
+        display: inline-block;
+        position: relative;
+        .popup {
+          position: absolute;
+          display: none;
+          white-space: nowrap;
+          padding: 6px 10px;
+          width: auto;
+          top: -33px;
+          transform: translate(-36%,0);
+          line-height: 100%;
+          background: white;
+          box-shadow: 0 1px 3px rgba(0,0,0,.5);
+          border: 1px solid $gray;
+          z-index: 200;
+          &:after {
+            content: '';
+            width: 14px;
+            height: 9px;
+            background: url('#{$img-path}arrow.png') 50% 50% no-repeat;
+            bottom: -9px;
+            right: calc(50% - 7px);
+            display: block;
+            position: absolute;
+          }
+        }
+        button {
+          display: inline-block;
+          width: 25px;
+          height: 25px;
+          position: relative;
+          background: 50% 50% no-repeat;
+          &:hover {
+            & + .popup {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+  .image-info {
+    padding: 20px;
+    width: 30%;
+    background: white;
+    cursor: default;
+    border-radius: 5px;
+
+    overflow: auto;
+    ul {
+      min-width: 165px;
+      text-align: left;
+      padding: 0 25px 0 10px;
+      list-style: none;
+      font: 400 11px $Verdana;
+      li {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 13px;
+        & + li {
+          margin-top: 11px;
+        }
+      }
+      a {
+        color: $blue;
+      }
+    }
+  }
+}
+

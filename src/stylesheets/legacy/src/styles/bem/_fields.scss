@@ -1,0 +1,156 @@
+.field {
+  height: 31px;
+  // for select 2
+  & ~ .select2 {
+    .select2-selection {
+      @include bordered;
+      height: 30px;
+    }
+  }
+  &_bordered {
+    @include bordered;
+    padding: 0 10px;
+    display: inline-block;
+    box-sizing: border-box;
+    transition: box-shadow 1s ease, background 1s ease;
+  }
+  &_default-size {
+    width: calc(100% - 50px);
+    max-width: calc(100% - 50px);
+  }
+  &_multiple {
+    position: relative;
+    padding-right: 30px;
+    &_active {
+      & ~ .field__arrow {
+        transform: rotate(180deg);
+      }
+      & ~ .multiple-choice {
+        transform: scale3d(1, 1, 1);
+        box-shadow: 0 5px 14px rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+  &__arrow {
+    transform-origin: 70% center;
+    transition: 0.3s ease;
+    position: absolute;
+    cursor: pointer;
+    outline: none;
+    width: 25px;
+    height: 25px;
+    top: 5px;
+    right: 60px;
+    z-index: 1;
+    background: url('#{$img-path}select-arrow.png') 95% 50% no-repeat;
+  }
+  &[disabled],
+  &_disabled {
+    border: none;
+    padding: 0;
+    background: white;
+    @include placeholder {
+      color: white;
+    }
+  }
+  &[disabled]:hover,
+  &_disabled:hover {
+    cursor: not-allowed;
+  }
+  &_hidden {
+    display: none;
+  }
+  &_textarea {
+    height: 200px;
+    // max-width: 100%;
+    &_height_small {
+      height: 70px;
+    }
+  }
+  &_full-width {
+    width: 100%;
+  }
+  &_datepicker {
+    @include datepickerField;
+  }
+  &_warning {
+    @include warning;
+  }
+  &_success {
+    & ~ .select2 {
+      .select2-selection {
+        @include success;
+      }
+    }
+    @include success;
+  }
+  &_error {
+    & ~ .select2 {
+      .select2-selection {
+        @include error;
+      }
+    }
+    @include error;
+  }
+  &.removable {
+    position: relative;
+  }
+}
+
+.multiple-choice {
+  // max-height: 920px;
+  // overflow: auto;
+  &__table {
+    width: 100%;
+    td {
+      vertical-align: top;
+    }
+  }
+  &:focus {
+    transform: scale3d(1, 1, 1);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.4);
+    & ~ .field__arrow {
+      transform: rotate(180deg);
+    }
+  }
+  &_big {
+    max-width: 920px;
+    min-width: 200px;
+  }
+  &_right {
+    right: 0;
+  }
+  &_left {
+    left: 0;
+  }
+  // & > label {
+  //   box-sizing: border-box;
+  //   // flex: 1 auto;
+  //   cursor: pointer;
+  //   display: block;
+  //   float: none;
+  //   // width: 48%;
+  // }
+  outline: none;
+  position: absolute;
+  transition: 0.1s ease;
+  transform: scale3d(1, 0, 1);
+  transform-origin: top;
+  padding: 5px 20px;
+  border: 1px solid $grey;
+  top: $line-height;
+  background: white;
+  z-index: 3;
+  .checkbox {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 20px;
+    min-width: 100px;
+    @include checkbox;
+    .mark {
+      top: 2px;
+      left: 2px;
+    }
+  }
+}
