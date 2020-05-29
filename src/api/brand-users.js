@@ -38,7 +38,7 @@ export const deleteBrandAssignedUser = (BrandAssignedUserId: string, AccessKey: 
 export const getBrandsUsersSuggestions = (searchString: string, AccessKey: string) => {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
-			return resolve(usersSelectData.filter((item) => item.name.indexOf(searchString) !== -1 || item.name.indexOf(searchString[0]) !== -1))
-		}, 300)
+			return resolve(usersSelectData.filter((item) => item.name.toLowerCase().indexOf(searchString.toLowerCase()) !== -1))
+		}, Math.random() * 300)
 	})
 }

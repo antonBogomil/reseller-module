@@ -17,5 +17,8 @@ export const dictionary = {
 	SAVE: 'Save',
 	CANCEL: 'Cancel',
 	DELETE: 'Delete',
-	DELETE_CONFIRM: 'Delete'
+	DELETE_CONFIRM: 'Delete',
+	ASSIGN_RESELLERS_TITLE: 'Assigned resellers',
+	ASSIGN_RESELLERS_TITLE_DESC: 'Mentioned users will have the brand\'s repository access',
+	ADD_RESELLER: 'Add the reseller'
 }

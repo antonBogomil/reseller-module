@@ -81,10 +81,9 @@ const AssignedUsers = ({accessKey, brandId}) => {
 					<AddReseller handleAdd={handleAddUser}/>
 				</HeaderStyled>
 				{
-					loading ? 'Loading' :
+					loading ? 'Loading...' :
 						<Table
 							list={users}
-							// activeItem={editUser}
 							handleDelete={handleDeleteButton}
 							handleSaveCode={handleSaveCode}
 							handleChangeCode={handleChangeCode}

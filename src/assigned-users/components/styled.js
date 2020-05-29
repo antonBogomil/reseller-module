@@ -42,10 +42,21 @@ export const HeaderStyled = styled.div`
   background: linear-gradient(#ffffff, #efefef);
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `
 export const ButtonAdd = styled.button`
-  background: none;
   border: none;
+  color: #086bc8;
+  background: url(/img/campaign_def/icon_star.gif) no-repeat center left;
+  padding-left: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+  &:disabled{
+  	opacity: 0.5;
+  }
+  &:focus{
+   outline: none;
+  }
 `
 export const ModalWrapper = styled.div`
 	width: 280px;
@@ -60,4 +71,9 @@ export const ButtonContainer = styled.div`
 `
 export const ResellerDropdownContainer = styled.div`
 		display: flex;
+`
+export const Title = styled.div`
+	font-weight: bold;
+	text-decoration: underline dotted;
+	font-size: 12px;
 `

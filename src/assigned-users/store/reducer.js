@@ -15,6 +15,7 @@ export const initialState: State = {
 	users: [],
 	originalUsers: [],
 	userToDelete: null,
+	userSaved: null
 }
 
 export const reducer = (state, {type, payload}) => {

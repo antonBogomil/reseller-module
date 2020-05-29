@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Downshift from 'downshift'
 import { Container, Drop, Input, Menu, MenuItem, ToggleButton, ToggleIcon } from './styled'
+import Loader from "./loader";
 
 type Item = {
   key: string | number,
@@ -12,6 +13,7 @@ type Props = {
   onChange: Function,
   onInput?: Function,
   selected?: Item | {},
+  loading?: boolean,
 }
 
 class AutocompleteNew extends Component<Props> {
@@ -28,7 +30,7 @@ class AutocompleteNew extends Component<Props> {
   }
 
   render() {
-    const { items, selected, initialSelected } = this.props
+    const { items, selected, initialSelected,loading } = this.props
     const { filter } = this.state
     return (
       <>
@@ -85,6 +87,7 @@ class AutocompleteNew extends Component<Props> {
                             })}
                         </Menu>
                       </div>
+                      {loading && <Loader/>}
                     </Drop>
                   )}
                 </Container>
